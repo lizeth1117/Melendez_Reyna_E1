@@ -21,16 +21,16 @@ public class Melendez_Reyna_E1 {
         // TODO code application logic here
         Scanner entrada= new Scanner(System.in);
         int opcion, mayor=1,sumaenteros=0, contadorenteros=0, entero, costocaja=0;
-        double subtotal, totalpagar;
-        float promedio ;
+        double promedio, subtotal, totalpagar;
         String menu="Seleccione una opcion: \n"
                 + "1. Piramide\n"
                 + "2.El Mayor\n"
                 + "3.Canales\n"
                 + "4.Caracteres Vocales\n"
                 + "5. Salir\n" ;
-        
-        System.out.println(menu);  
+        do{
+            
+        System.out.println("\n+"+menu);  
         opcion= entrada.nextInt()   ;
        
         
@@ -73,22 +73,24 @@ public class Melendez_Reyna_E1 {
           
          if(opcion==3) {
              int canalesnormal=0, canaleshd=0;
+             String opcion3;
              
              System.out.println("Ingrese el nombre del Cliente: ");
              String nombre= entrada.next();
-             System.out.println("Desea ingresar un canal: indique si o no");
-                  String opcion3=entrada.next().toLowerCase();
+             //System.out.println("Desea ingresar un canal: indique si o no");
+              //    String opcion3=entrada.next().toLowerCase();
              do {
-
+                 
                  System.out.println("Indique el tipo de canal: HD o NORMAL");
                  String tipocanal= entrada.next().toLowerCase()  ;
                     if (tipocanal=="hd")
                         canaleshd++;
                     else if (tipocanal=="normal")
                      canalesnormal++;
-             System.out.println("Desea ingresar un canal: indique si o no");
+              System.out.println("Desea ingresar un canal: indique si o no");
                  opcion3=entrada.next().toLowerCase();
-             }
+             } //fin de do
+             
              while (opcion3=="si");
              
                  System.out.println("Ingrese el tipo de caja digital deseada:\nLIGHTBOX\nHDBOX\nDVRBOX");
@@ -102,16 +104,31 @@ public class Melendez_Reyna_E1 {
             subtotal=(costocaja+(canaleshd*30)+(canalesnormal*20));
             totalpagar=(subtotal*1.15) ;
               System.out.println("El cliente "+nombre+" debe pagar un total de "+totalpagar) ;
-           
+         
          } // fin de opcion
          if(opcion==4) {
+             int contadorvocales=0 ;
+             String cadena ;
              
-                 
+             System.out.println("Ingrese una cadena :");
+             cadena=entrada.next();
+             
+             
+             for (int i = 0; i < cadena.length(); i++) {
+                char caracter = cadena.charAt(i);
+            switch (caracter) {
+                case 'a', 'e', 'i', 'o', 'u' -> contadorvocales++;      
+            }
              }
+            System.out.println("La cadena contiene " + contadorvocales + " vocales.");
+             } // final de opcion 4
          
          if(opcion==5) {
+             System.out.println("Hasta luego :)");
              
-         }
+         } // fin de opcion 5
+       } // fin de do menu principal
+         while(opcion!=5);
     } // fin de main
     
 } // fin de class

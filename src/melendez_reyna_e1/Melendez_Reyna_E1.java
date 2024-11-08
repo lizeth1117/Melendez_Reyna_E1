@@ -87,25 +87,26 @@ public class Melendez_Reyna_E1 {
                         canaleshd++;
                     else if (tipocanal=="normal")
                      canalesnormal++;
-              System.out.println("Desea ingresar un canal: indique si o no");
-                 opcion3=entrada.next().toLowerCase();
-             } //fin de do
+                 System.out.println("Desea ingresar un canal: indique si o no");
+                 opcion3=entrada.next();
+             }//fin de do
              
-             while (opcion3=="si");
-             
-                 System.out.println("Ingrese el tipo de caja digital deseada:\nLIGHTBOX\nHDBOX\nDVRBOX");
-                 String tipocaja= entrada.next().toLowerCase();
-                 if(tipocaja=="lightbox"){
-                     costocaja=50 ;}
-                 else if (tipocaja=="hdbox"){
-                     costocaja=100;}
-                 else if(tipocaja=="dvrbox"){
-                     costocaja=150;}
+             while (opcion3!="si");
+            if(opcion3=="no"){
+             System.out.println("Ingrese el tipo de caja digital deseada:\nLIGHTBOX\nHDBOX\nDVRBOX");
+             String tipocaja= entrada.next().toLowerCase();
+             if(tipocaja=="lightbox"){
+                 costocaja=50 ;}
+             else if (tipocaja=="hdbox"){
+                 costocaja=100;}
+             else if(tipocaja=="dvrbox"){
+                 costocaja=150;}
+            }
             subtotal=(costocaja+(canaleshd*30)+(canalesnormal*20));
             totalpagar=(subtotal*1.15) ;
               System.out.println("El cliente "+nombre+" debe pagar un total de "+totalpagar) ;
          
-         } // fin de opcion
+             } // fin de opcion
          if(opcion==4) {
              int contadorvocales=0 ;
              String cadena ;
